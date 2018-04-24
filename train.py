@@ -16,11 +16,11 @@ TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataSet')
 
 #Load ARGUMENTS
 parser = argparse.ArgumentParser()
-parser.add_argument('--epochs', type=int)
-parser.add_argument('--batch', type=int)
+parser.add_argument('epochs', type=int)
+parser.add_argument('batch_size', type=int)
 args = parser.parse_args()
 epochs = args.epochs
-batch = args.batch
+batch_size = args.batch_size
 
 # load dataset
 dataframe = pandas.read_csv(TRAIN_IMAGES_DIR, header=None)
@@ -45,8 +45,8 @@ def baseline_model():
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 	return model
   
-  estimator = KerasClassifier(build_fn=baseline_model, epochs=200, batch_size=5, verbose=0)
-  kfold = KFold(n_splits=10, shuffle=True, random_state=seed)
+estimator = KerasClassifier(build_fn=baseline_model, epochs=epochs, batch_size=batch_size, verbose=0)
+kfold = KFold(n_splits=10, shuffle=True, random_state=seed)
   
-  results = cross_val_score(estimator, X, dummy_y, cv=kfold)
+results = cross_val_score(estimator, X, dummy_y, cv=kfold)
 print("Baseline: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
