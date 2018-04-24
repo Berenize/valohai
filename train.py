@@ -23,7 +23,7 @@ TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataSet')
 parser = argparse.ArgumentParser()
 parser.add_argument('epochs', type=int)
 parser.add_argument('batch_size', type=int)
-args = parser.parse_args()
+args, unparsed = parser.parse_known_args()
 epochs = args.epochs
 batch_size = args.batch_size
 
