@@ -16,8 +16,11 @@ TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataSet')
 
 #Load ARGUMENTS
 parser = argparse.ArgumentParser()
-parser.add_argument('--max_steps', type=int, default=300,
-                        help='Number of steps to run trainer')
+parser.add_argument('--epochs', type=int)
+parser.add_argument('--batch', type=int)
+args = parser.parse_args()
+epochs = args.epochs
+batch = args.batch
 
 # load dataset
 dataframe = pandas.read_csv(TRAIN_IMAGES_DIR, header=None)
