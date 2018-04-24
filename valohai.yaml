@@ -1,0 +1,17 @@
+- step:
+    name: keras-iris
+    image: valohai/keras:2.0.0-python3.6-cuda8.0-cudnn5-devel-ubuntu16.04
+    command:
+      - python train.py {parameters}
+    inputs:
+      - name: dataset
+        default: iris.cvs
+    parameters:
+      - name: batch_size
+        pass-as: --batch_size={v}
+        type: integer
+        default: 5      
+      - name: epochs
+        pass-as: --epochs={v}
+        type: integer
+        default: 200      
