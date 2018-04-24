@@ -1,8 +1,3 @@
-#Source https://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep-learning-library/
-
-import numpy
-import pandas
-from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils import np_utils
@@ -15,8 +10,17 @@ from sklearn.pipeline import Pipeline
 seed = 7
 numpy.random.seed(seed)
 
+#Load INPUTS
+INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
+TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataSet')
+
+#Load ARGUMENTS
+parser = argparse.ArgumentParser()
+parser.add_argument('--max_steps', type=int, default=300,
+                        help='Number of steps to run trainer')
+
 # load dataset
-dataframe = pandas.read_csv("iris.csv", header=None)
+dataframe = pandas.read_csv(TRAIN_IMAGES_DIR, header=None)
 dataset = dataframe.values
 X = dataset[:,0:4].astype(float)
 Y = dataset[:,4]
