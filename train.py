@@ -30,8 +30,8 @@ batch_size = args.batch_size
 # load dataset
 dataframe = pandas.read_csv(TRAIN_IMAGES_DIR, header=None)
 dataset = dataframe.values
-X = dataset[:,0:4].astype(float)
-Y = dataset[:,4]
+X = dataset[1:,0:4].astype(float)
+Y = dataset[1:,4]
 
 # encode class values as integers
 encoder = LabelEncoder()
