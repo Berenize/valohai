@@ -17,7 +17,7 @@ numpy.random.seed(seed)
 
 #Load INPUTS
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', '/')
-TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataSet')
+TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataset')
 
 #Load ARGUMENTS
 parser = argparse.ArgumentParser()
