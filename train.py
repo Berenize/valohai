@@ -16,7 +16,7 @@ seed = 7
 numpy.random.seed(seed)
 
 #Load INPUTS
-INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
+INPUTS_DIR = os.getenv('VH_INPUTS_DIR', '/')
 TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataSet')
 
 #Load ARGUMENTS
