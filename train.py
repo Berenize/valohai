@@ -57,7 +57,7 @@ kfold = KFold(n_splits=10, shuffle=True, random_state=seed)
 results = cross_val_score(estimator, X, dummy_y, cv=kfold)
 print("Baseline: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
-outputs_dir = os.getenv('VH_OUTPUTS_DIR', './')
+outputs_dir = os.getenv('VH_OUTPUTS_DIR', '/')
 output_file = os.path.join(outputs_dir, 'my_model.h5')
 print('Saving model to %s' % output_file)
 model.save_weights(output_file)
