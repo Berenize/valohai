@@ -49,8 +49,9 @@ def baseline_model():
 	# Compile model
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 	return model
-  
-estimator = KerasClassifier(build_fn=baseline_model, epochs=epochs, batch_size=batch_size, verbose=0)
+
+model = baseline_model  
+estimator = KerasClassifier(build_fn=model, epochs=epochs, batch_size=batch_size, verbose=0)
 kfold = KFold(n_splits=10, shuffle=True, random_state=seed)
   
 results = cross_val_score(estimator, X, dummy_y, cv=kfold)
