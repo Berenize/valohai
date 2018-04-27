@@ -10,6 +10,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
 from sklearn.pipeline import Pipeline
+from keras.models import model_from_json
 
 # fix random seed for reproducibility
 seed = 7
@@ -60,6 +61,9 @@ print("Baseline: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 outputs_dir = os.getenv('VH_OUTPUTS_DIR', '/')
 output_file = os.path.join(outputs_dir, 'my_model.h5')
 print('Saving model to %s' % output_file)
-model.model.save_weights(output_file)
-files = os.listdir(output_dir)
-print('The file is here %s' %files[0])
+model_json = model.to_json()
+with open(output_file, "w") as json_file:
+    json_file.write(model_json)
+#model.model.save_weights(output_file)
+#files = os.listdir(output_dir)
+#print('The file is here %s' %files[0])
