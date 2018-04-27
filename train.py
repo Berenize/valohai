@@ -18,7 +18,7 @@ numpy.random.seed(seed)
 #Load INPUTS
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', '/')
 TRAIN_IMAGES_DIR = os.path.join(INPUTS_DIR, 'dataset')
-input_files = os.listdir(INPUTS_DIR)
+input_files = os.listdir(TRAIN_IMAGES_DIR)
 print(input_files[0])
 
 #Load ARGUMENTS
