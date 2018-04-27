@@ -64,6 +64,6 @@ print('Saving model to %s' % output_file)
 #model_json = model.to_json()
 #with open(output_file, "w") as json_file:
 #    json_file.write(model_json)
-model.model.save_weights(output_file)
+model.save_weights(output_file)
 #files = os.listdir(output_dir)
 #print('The file is here %s' %files[0])
