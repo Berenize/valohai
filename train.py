@@ -28,7 +28,7 @@ epochs = args.epochs
 batch_size = args.batch_size
 
 # load dataset
-dataframe = pandas.read_csv(TRAIN_IMAGES_DIR, header=None)
+dataframe = pandas.read_csv(TRAIN_IMAGES_DIR, header=None, engine='python')
 dataset = dataframe.values
 X = dataset[1:,0:4].astype(float)
 Y = dataset[1:,4]
